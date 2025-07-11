@@ -1,0 +1,1020 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CVProcessing.Core</name>
+    </assembly>
+    <members>
+        <member name="T:CVProcessing.Core.Constants.FileTypes">
+            <summary>
+            Tipos de archivo soportados y configuraciones relacionadas
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.FileTypes.SupportedExtensions">
+            <summary>
+            Extensiones de archivo soportadas para CVs
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.FileTypes.SupportedMimeTypes">
+            <summary>
+            Tipos MIME soportados
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.FileTypes.MaxFileSize">
+            <summary>
+            Tamaño máximo de archivo en bytes (10MB)
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.FileTypes.MaxFilesPerBatch">
+            <summary>
+            Número máximo de archivos por lote
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.FileTypes.MaxBatchSize">
+            <summary>
+            Tamaño máximo total del lote en bytes (500MB)
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Constants.StoragePaths">
+            <summary>
+            Rutas y estructura de almacenamiento del sistema
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Sessions">
+            <summary>
+            Directorio base para todas las sesiones
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Documents">
+            <summary>
+            Directorio para documentos dentro de una sesión
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Input">
+            <summary>
+            Directorio para archivos originales
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Output">
+            <summary>
+            Directorio para resultados procesados
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Analysis">
+            <summary>
+            Directorio para análisis y matrices
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.Logs">
+            <summary>
+            Directorio para logs del sistema
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.SessionMetadata">
+            <summary>
+            Archivo de metadatos de la sesión
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.JobOfferFile">
+            <summary>
+            Archivo de oferta laboral
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Constants.StoragePaths.ComparisonMatrix">
+            <summary>
+            Archivo de matriz de comparación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.ComparisonMatrix">
+            <summary>
+            Matriz de comparación entre candidatos de una sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonMatrix.SessionId">
+            <summary>
+            ID de la sesión a la que pertenece esta matriz
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonMatrix.Candidates">
+            <summary>
+            Lista de candidatos ordenados por puntuación
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonMatrix.Statistics">
+            <summary>
+            Estadísticas generales de la comparación
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonMatrix.GeneratedAt">
+            <summary>
+            Fecha de generación de la matriz
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonMatrix.GenerationTimeMs">
+            <summary>
+            Tiempo que tomó generar la matriz en milisegundos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.CandidateComparison">
+            <summary>
+            Comparación individual de un candidato
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.DocumentId">
+            <summary>
+            ID del documento (CV)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Name">
+            <summary>
+            Nombre del candidato
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Email">
+            <summary>
+            Email del candidato (si está disponible)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.OverallScore">
+            <summary>
+            Puntuación general del candidato
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Scores">
+            <summary>
+            Puntuaciones detalladas por categoría
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Ranking">
+            <summary>
+            Posición en el ranking (1 = mejor)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.MatchingSkills">
+            <summary>
+            Habilidades que coinciden con la oferta laboral
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.MissingSkills">
+            <summary>
+            Habilidades que faltan según la oferta laboral
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.RelevantExperienceYears">
+            <summary>
+            Años de experiencia relevante
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Strengths">
+            <summary>
+            Resumen de fortalezas del candidato
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Weaknesses">
+            <summary>
+            Áreas de mejora o debilidades
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CandidateComparison.Recommendation">
+            <summary>
+            Recomendación de contratación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.ComparisonStatistics">
+            <summary>
+            Estadísticas de la comparación
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.TotalCandidates">
+            <summary>
+            Total de candidatos analizados
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.AverageScore">
+            <summary>
+            Puntuación promedio
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.HighestScore">
+            <summary>
+            Puntuación más alta
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.LowestScore">
+            <summary>
+            Puntuación más baja
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.ScoreStandardDeviation">
+            <summary>
+            Desviación estándar de las puntuaciones
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.CommonSkills">
+            <summary>
+            Habilidades más comunes entre candidatos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.ComparisonStatistics.ExperienceDistribution">
+            <summary>
+            Distribución de años de experiencia
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.SkillFrequency">
+            <summary>
+            Frecuencia de una habilidad entre candidatos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.ExperienceDistribution">
+            <summary>
+            Distribución de experiencia entre candidatos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.HiringRecommendation">
+            <summary>
+            Recomendación de contratación
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Entities.HiringRecommendation.HighlyRecommended">
+            <summary>
+            Candidato altamente recomendado
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Entities.HiringRecommendation.Recommended">
+            <summary>
+            Candidato recomendado
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Entities.HiringRecommendation.Consider">
+            <summary>
+            Candidato considerado con reservas
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Entities.HiringRecommendation.NotRecommended">
+            <summary>
+            Candidato no recomendado
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.CVData">
+            <summary>
+            Información estructurada extraída de un CV
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.PersonalInfo">
+            <summary>
+            Información personal del candidato
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Experience">
+            <summary>
+            Experiencia laboral
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Skills">
+            <summary>
+            Habilidades técnicas y blandas
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Education">
+            <summary>
+            Formación académica
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Certifications">
+            <summary>
+            Certificaciones y cursos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Languages">
+            <summary>
+            Idiomas que maneja
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.Score">
+            <summary>
+            Puntuación general del CV (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVData.ExtractedAt">
+            <summary>
+            Fecha de extracción de los datos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.PersonalInfo">
+            <summary>
+            Información personal del candidato
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Experience">
+            <summary>
+            Experiencia laboral
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Education">
+            <summary>
+            Formación académica
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Certification">
+            <summary>
+            Certificación o curso
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Language">
+            <summary>
+            Idioma y nivel
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.CVScore">
+            <summary>
+            Puntuación detallada del CV
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVScore.Overall">
+            <summary>
+            Puntuación general (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVScore.Experience">
+            <summary>
+            Puntuación por experiencia (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVScore.Skills">
+            <summary>
+            Puntuación por habilidades (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVScore.Education">
+            <summary>
+            Puntuación por educación (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.CVScore.JobMatch">
+            <summary>
+            Puntuación de coincidencia con la oferta laboral (0-100)
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Document">
+            <summary>
+            Representa un documento (CV) individual en el sistema
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.Id">
+            <summary>
+            Identificador único del documento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.SessionId">
+            <summary>
+            ID de la sesión a la que pertenece
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.FileName">
+            <summary>
+            Nombre original del archivo
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.FilePath">
+            <summary>
+            Ruta donde se almacena el archivo original
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.FileSize">
+            <summary>
+            Tamaño del archivo en bytes
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ContentType">
+            <summary>
+            Tipo MIME del archivo
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.Status">
+            <summary>
+            Estado actual del procesamiento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ExtractedData">
+            <summary>
+            Datos extraídos del CV (null hasta que se procese)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ExtractedText">
+            <summary>
+            Texto extraído del documento (OCR o directo)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ErrorMessage">
+            <summary>
+            Mensaje de error si el procesamiento falló
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.UploadedAt">
+            <summary>
+            Fecha de subida del documento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ProcessedAt">
+            <summary>
+            Fecha de último procesamiento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Document.ProcessingTimeMs">
+            <summary>
+            Tiempo total de procesamiento en milisegundos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.JobOffer">
+            <summary>
+            Representa una oferta laboral contra la cual se compararán los CVs
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.Title">
+            <summary>
+            Título del puesto
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.Description">
+            <summary>
+            Descripción detallada del puesto
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.RequiredSkills">
+            <summary>
+            Habilidades requeridas
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.PreferredSkills">
+            <summary>
+            Habilidades deseables (no obligatorias)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.MinExperienceYears">
+            <summary>
+            Años de experiencia mínimos requeridos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.EducationLevel">
+            <summary>
+            Nivel educativo requerido
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.Location">
+            <summary>
+            Ubicación del trabajo
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.WorkMode">
+            <summary>
+            Modalidad de trabajo (remoto, presencial, híbrido)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.SalaryRange">
+            <summary>
+            Rango salarial (opcional)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.JobOffer.CreatedAt">
+            <summary>
+            Fecha de creación de la oferta
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.SalaryRange">
+            <summary>
+            Representa un rango salarial
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.Session">
+            <summary>
+            Representa una sesión de procesamiento de CVs
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.Id">
+            <summary>
+            Identificador único de la sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.JobOffer">
+            <summary>
+            Oferta laboral de referencia para esta sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.Documents">
+            <summary>
+            Lista de documentos (CVs) en esta sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.Status">
+            <summary>
+            Estado actual de la sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.ComparisonMatrix">
+            <summary>
+            Matriz de comparación (null hasta que se complete el análisis)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.Progress">
+            <summary>
+            Progreso del procesamiento (0-100)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.StatusMessage">
+            <summary>
+            Mensaje de estado actual
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.CreatedAt">
+            <summary>
+            Fecha de creación de la sesión
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.UpdatedAt">
+            <summary>
+            Fecha de última actualización
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.CompletedAt">
+            <summary>
+            Fecha de finalización del procesamiento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.TotalProcessingTimeMs">
+            <summary>
+            Tiempo total de procesamiento en milisegundos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.Session.Statistics">
+            <summary>
+            Estadísticas de la sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Entities.SessionStatistics">
+            <summary>
+            Estadísticas de una sesión de procesamiento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.TotalDocuments">
+            <summary>
+            Total de documentos cargados
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.ProcessedDocuments">
+            <summary>
+            Documentos procesados exitosamente
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.FailedDocuments">
+            <summary>
+            Documentos que fallaron en el procesamiento
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.AverageScore">
+            <summary>
+            Puntuación promedio de todos los CVs
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.HighestScore">
+            <summary>
+            Puntuación más alta obtenida
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Entities.SessionStatistics.LowestScore">
+            <summary>
+            Puntuación más baja obtenida
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Enums.DocumentStatus">
+            <summary>
+            Estados posibles de un documento (CV) durante el procesamiento
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Uploaded">
+            <summary>
+            Documento subido, esperando procesamiento
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Extracting">
+            <summary>
+            Extrayendo texto del documento (OCR)
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Analyzing">
+            <summary>
+            Analizando con OpenAI
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Processed">
+            <summary>
+            Procesamiento completado exitosamente
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Failed">
+            <summary>
+            Error durante el procesamiento
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.DocumentStatus.Rejected">
+            <summary>
+            Documento rechazado (formato no válido)
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Enums.SessionStatus">
+            <summary>
+            Estados posibles de una sesión de procesamiento de CVs
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.SessionStatus.Created">
+            <summary>
+            Sesión creada, esperando documentos
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.SessionStatus.Processing">
+            <summary>
+            Procesando documentos cargados
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.SessionStatus.Completed">
+            <summary>
+            Procesamiento completado exitosamente
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.SessionStatus.Failed">
+            <summary>
+            Error durante el procesamiento
+            </summary>
+        </member>
+        <member name="F:CVProcessing.Core.Enums.SessionStatus.Cancelled">
+            <summary>
+            Sesión cancelada por el usuario
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.IAnalysisService">
+            <summary>
+            Servicio para análisis y comparación de candidatos
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.GenerateComparisonMatrixAsync(System.Guid)">
+            <summary>
+            Generar matriz de comparación para una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Matriz de comparación generada</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.CalculateScoreAsync(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Calcular puntuación de un CV contra una oferta laboral
+            </summary>
+            <param name="cvData">Datos del CV</param>
+            <param name="jobOffer">Oferta laboral</param>
+            <returns>Puntuación calculada</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.CompareCandidate(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Comparar un candidato específico contra la oferta laboral
+            </summary>
+            <param name="cvData">Datos del CV</param>
+            <param name="jobOffer">Oferta laboral</param>
+            <returns>Comparación detallada</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.RankCandidatesAsync(System.Collections.Generic.List{CVProcessing.Core.Entities.CandidateComparison},CVProcessing.Core.Interfaces.RankingCriteria,System.Boolean)">
+            <summary>
+            Generar ranking de candidatos
+            </summary>
+            <param name="candidates">Lista de candidatos</param>
+            <param name="sortBy">Criterio de ordenamiento</param>
+            <param name="ascending">Orden ascendente o descendente</param>
+            <returns>Lista ordenada de candidatos</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.GenerateStatisticsAsync(System.Guid)">
+            <summary>
+            Generar estadísticas de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Estadísticas calculadas</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.AnalyzeSkillGapAsync(System.Guid)">
+            <summary>
+            Identificar habilidades más demandadas vs disponibles
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Análisis de gap de habilidades</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IAnalysisService.GenerateHiringRecommendationsAsync(System.Guid,System.Int32)">
+            <summary>
+            Generar recomendaciones de contratación
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="topN">Número de candidatos top a recomendar</param>
+            <returns>Lista de recomendaciones</returns>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.RankingCriteria">
+            <summary>
+            Criterios de ranking de candidatos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.SkillGapAnalysis">
+            <summary>
+            Análisis de gap de habilidades
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.SkillGapAnalysis.ScarceSkills">
+            <summary>
+            Habilidades requeridas que están escasas
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.SkillGapAnalysis.AbundantSkills">
+            <summary>
+            Habilidades abundantes en los candidatos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.SkillGapAnalysis.MissingSkills">
+            <summary>
+            Habilidades completamente ausentes
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.SkillGapAnalysis.OverallCoverage">
+            <summary>
+            Porcentaje general de cobertura de habilidades
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.SkillGap">
+            <summary>
+            Gap de una habilidad específica
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.HiringRecommendationDetail">
+            <summary>
+            Recomendación detallada de contratación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.IDocumentService">
+            <summary>
+            Servicio para gestión y procesamiento de documentos (CVs)
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.UploadAsync(System.Guid,System.String,System.IO.Stream,System.String)">
+            <summary>
+            Subir un documento a una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="fileName">Nombre del archivo</param>
+            <param name="fileContent">Contenido del archivo</param>
+            <param name="contentType">Tipo MIME del archivo</param>
+            <returns>Documento creado</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.UploadBatchAsync(System.Guid,System.Collections.Generic.List{System.ValueTuple{System.String,System.IO.Stream,System.String}})">
+            <summary>
+            Subir múltiples documentos en lote
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="files">Lista de archivos a subir</param>
+            <returns>Lista de documentos creados</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.GetByIdAsync(System.Guid)">
+            <summary>
+            Obtener un documento por su ID
+            </summary>
+            <param name="documentId">ID del documento</param>
+            <returns>Documento encontrado o null</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.GetBySessionIdAsync(System.Guid)">
+            <summary>
+            Obtener todos los documentos de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Lista de documentos</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.ProcessAsync(System.Guid,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Procesar un documento (extraer texto y analizar con IA)
+            </summary>
+            <param name="documentId">ID del documento</param>
+            <param name="jobOffer">Oferta laboral de referencia</param>
+            <returns>Datos extraídos del CV</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.ProcessSessionDocumentsAsync(System.Guid)">
+            <summary>
+            Procesar todos los documentos de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Lista de datos extraídos</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.DeleteAsync(System.Guid)">
+            <summary>
+            Eliminar un documento
+            </summary>
+            <param name="documentId">ID del documento</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IDocumentService.ValidateFileAsync(System.String,System.Int64,System.String)">
+            <summary>
+            Validar si un archivo es válido para procesamiento
+            </summary>
+            <param name="fileName">Nombre del archivo</param>
+            <param name="fileSize">Tamaño del archivo</param>
+            <param name="contentType">Tipo MIME</param>
+            <returns>True si es válido, excepción si no</returns>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.IFileStorage">
+            <summary>
+            Servicio para almacenamiento de archivos (local o cloud)
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.SaveFileAsync(System.String,System.IO.Stream)">
+            <summary>
+            Guardar un archivo
+            </summary>
+            <param name="path">Ruta relativa donde guardar</param>
+            <param name="content">Contenido del archivo</param>
+            <returns>Ruta completa del archivo guardado</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.SaveTextAsync(System.String,System.String)">
+            <summary>
+            Guardar contenido de texto
+            </summary>
+            <param name="path">Ruta relativa donde guardar</param>
+            <param name="content">Contenido de texto</param>
+            <returns>Ruta completa del archivo guardado</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.ReadFileAsync(System.String)">
+            <summary>
+            Leer un archivo como stream
+            </summary>
+            <param name="path">Ruta del archivo</param>
+            <returns>Stream del archivo</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.ReadTextAsync(System.String)">
+            <summary>
+            Leer un archivo como texto
+            </summary>
+            <param name="path">Ruta del archivo</param>
+            <returns>Contenido del archivo</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.ExistsAsync(System.String)">
+            <summary>
+            Verificar si un archivo existe
+            </summary>
+            <param name="path">Ruta del archivo</param>
+            <returns>True si existe</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.DeleteFileAsync(System.String)">
+            <summary>
+            Eliminar un archivo
+            </summary>
+            <param name="path">Ruta del archivo</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.DeleteDirectoryAsync(System.String)">
+            <summary>
+            Eliminar un directorio y todo su contenido
+            </summary>
+            <param name="path">Ruta del directorio</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.CreateDirectoryAsync(System.String)">
+            <summary>
+            Crear un directorio si no existe
+            </summary>
+            <param name="path">Ruta del directorio</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.GetFileSizeAsync(System.String)">
+            <summary>
+            Obtener el tamaño de un archivo
+            </summary>
+            <param name="path">Ruta del archivo</param>
+            <returns>Tamaño en bytes</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IFileStorage.ListFilesAsync(System.String,System.String)">
+            <summary>
+            Listar archivos en un directorio
+            </summary>
+            <param name="path">Ruta del directorio</param>
+            <param name="pattern">Patrón de búsqueda (opcional)</param>
+            <returns>Lista de rutas de archivos</returns>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.IOpenAIService">
+            <summary>
+            Servicio para integración con OpenAI para análisis de CVs
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IOpenAIService.ExtractCVDataAsync(System.String,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Extraer datos estructurados de un CV usando OpenAI
+            </summary>
+            <param name="documentText">Texto extraído del CV</param>
+            <param name="jobOffer">Oferta laboral de referencia</param>
+            <returns>Datos estructurados del CV</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IOpenAIService.GenerateComparisonAsync(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Generar una comparación detallada entre un CV y una oferta laboral
+            </summary>
+            <param name="cvData">Datos del CV</param>
+            <param name="jobOffer">Oferta laboral</param>
+            <returns>Análisis de coincidencia</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IOpenAIService.GenerateExecutiveSummaryAsync(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Generar un resumen ejecutivo de un candidato
+            </summary>
+            <param name="cvData">Datos del CV</param>
+            <param name="jobOffer">Oferta laboral</param>
+            <returns>Resumen ejecutivo</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IOpenAIService.HealthCheckAsync">
+            <summary>
+            Verificar la salud de la conexión con OpenAI
+            </summary>
+            <returns>True si la conexión es exitosa</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.IOpenAIService.GetUsageStatsAsync">
+            <summary>
+            Obtener información de uso de tokens
+            </summary>
+            <returns>Estadísticas de uso</returns>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.OpenAIUsageStats">
+            <summary>
+            Estadísticas de uso de OpenAI
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.OpenAIUsageStats.TokensUsed">
+            <summary>
+            Tokens utilizados en el período actual
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.OpenAIUsageStats.TokenLimit">
+            <summary>
+            Límite de tokens disponible
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.OpenAIUsageStats.RequestCount">
+            <summary>
+            Número de requests realizados
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.OpenAIUsageStats.EstimatedCost">
+            <summary>
+            Costo estimado en USD
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Core.Interfaces.OpenAIUsageStats.LastReset">
+            <summary>
+            Fecha de último reset del contador
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Core.Interfaces.ISessionService">
+            <summary>
+            Servicio para gestión de sesiones de procesamiento de CVs
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.CreateAsync(CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Crear una nueva sesión con una oferta laboral
+            </summary>
+            <param name="jobOffer">Oferta laboral de referencia</param>
+            <returns>Sesión creada</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.GetByIdAsync(System.Guid)">
+            <summary>
+            Obtener una sesión por su ID
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Sesión encontrada o null</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.UpdateStatusAsync(System.Guid,CVProcessing.Core.Enums.SessionStatus,System.String)">
+            <summary>
+            Actualizar el estado de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="status">Nuevo estado</param>
+            <param name="message">Mensaje de estado opcional</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.UpdateProgressAsync(System.Guid,System.Int32)">
+            <summary>
+            Actualizar el progreso de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="progress">Progreso (0-100)</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.GetAllAsync(System.Int32,System.Int32)">
+            <summary>
+            Obtener todas las sesiones (con paginación)
+            </summary>
+            <param name="page">Página (base 1)</param>
+            <param name="pageSize">Tamaño de página</param>
+            <returns>Lista paginada de sesiones</returns>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.DeleteAsync(System.Guid)">
+            <summary>
+            Eliminar una sesión y todos sus datos
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+        </member>
+        <member name="M:CVProcessing.Core.Interfaces.ISessionService.ExistsAsync(System.Guid)">
+            <summary>
+            Verificar si una sesión existe
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>True si existe</returns>
+        </member>
+    </members>
+</doc>

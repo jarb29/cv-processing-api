@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CVProcessing.API</name>
+    </assembly>
+    <members>
+        <member name="T:CVProcessing.API.Controllers.AnalysisController">
+            <summary>
+            Controlador para análisis y comparación de candidatos
+            </summary>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GenerateComparisonMatrix(System.Guid)">
+            <summary>
+            Generar matriz de comparación de candidatos
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Matriz de comparación completa</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GetComparisonMatrix(System.Guid)">
+            <summary>
+            Obtener matriz de comparación existente
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Matriz de comparación</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GetRankings(System.Guid,System.String,System.String,System.Int32)">
+            <summary>
+            Obtener ranking de candidatos
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="sortBy">Criterio de ordenamiento</param>
+            <param name="order">Orden (asc/desc)</param>
+            <param name="limit">Límite de resultados</param>
+            <returns>Lista ordenada de candidatos</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GetSkillGapAnalysis(System.Guid)">
+            <summary>
+            Analizar gap de habilidades
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Análisis de gap de habilidades</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GetHiringRecommendations(System.Guid,System.Int32)">
+            <summary>
+            Generar recomendaciones de contratación
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="topN">Número de candidatos top</param>
+            <returns>Recomendaciones de contratación</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.AnalysisController.GetStatistics(System.Guid)">
+            <summary>
+            Obtener estadísticas de análisis
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Estadísticas del análisis</returns>
+        </member>
+        <member name="T:CVProcessing.API.Controllers.DocumentsController">
+            <summary>
+            Controlador para gestión de documentos (CVs)
+            </summary>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.DocumentsController.UploadDocuments(System.Guid,Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            Subir documentos (CVs) a una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="files">Archivos a subir</param>
+            <returns>Resultado del upload</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.DocumentsController.GetSessionDocuments(System.Guid)">
+            <summary>
+            Obtener todos los documentos de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Lista de documentos</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.DocumentsController.GetDocument(System.Guid,System.Guid)">
+            <summary>
+            Obtener detalles de un documento específico
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="documentId">ID del documento</param>
+            <returns>Detalles del documento</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.DocumentsController.DeleteDocument(System.Guid,System.Guid)">
+            <summary>
+            Eliminar un documento
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="documentId">ID del documento</param>
+            <returns>Confirmación de eliminación</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.DocumentsController.ProcessDocument(System.Guid,System.Guid)">
+            <summary>
+            Procesar un documento específico
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="documentId">ID del documento</param>
+            <returns>Datos extraídos del CV</returns>
+        </member>
+        <member name="T:CVProcessing.API.Controllers.HealthController">
+            <summary>
+            Controlador para health checks del sistema
+            </summary>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.HealthController.GetHealth">
+            <summary>
+            Health check general del sistema
+            </summary>
+            <returns>Estado de salud de todos los componentes</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.HealthController.Ping">
+            <summary>
+            Health check simple para load balancers
+            </summary>
+            <returns>OK si el servicio está funcionando</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.HealthController.GetInfo">
+            <summary>
+            Información detallada del sistema
+            </summary>
+            <returns>Información del sistema y configuración</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.HealthController.GetOpenAIUsage">
+            <summary>
+            Estadísticas de uso de OpenAI
+            </summary>
+            <returns>Estadísticas de uso de la API de OpenAI</returns>
+        </member>
+        <member name="T:CVProcessing.API.Controllers.JobsController">
+            <summary>
+            Controlador para gestión manual de trabajos en cola
+            </summary>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.JobsController.GetQueueStats">
+            <summary>
+            Obtener estadísticas de las colas de trabajo
+            </summary>
+            <returns>Estadísticas de las colas</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.JobsController.QueueDocumentProcessing(System.Guid,System.Guid)">
+            <summary>
+            Encolar manualmente el procesamiento de un documento
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="documentId">ID del documento</param>
+            <returns>Confirmación de encolado</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.JobsController.QueueSessionAnalysis(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Encolar manualmente el análisis de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="generateMatrix">Generar matriz de comparación</param>
+            <param name="generateRecommendations">Generar recomendaciones</param>
+            <returns>Confirmación de encolado</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.JobsController.ProcessAllSessionDocuments(System.Guid)">
+            <summary>
+            Forzar el procesamiento de todos los documentos pendientes de una sesión
+            </summary>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Confirmación de encolado</returns>
+        </member>
+        <member name="T:CVProcessing.API.Controllers.SessionsController">
+            <summary>
+            Controlador para gestión de sesiones de procesamiento de CVs
+            </summary>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.SessionsController.CreateSession(CVProcessing.Application.DTOs.CreateSessionRequest)">
+            <summary>
+            Crear una nueva sesión de procesamiento
+            </summary>
+            <param name="request">Datos de la sesión a crear</param>
+            <returns>Sesión creada</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.SessionsController.GetSession(System.Guid)">
+            <summary>
+            Obtener una sesión por ID
+            </summary>
+            <param name="id">ID de la sesión</param>
+            <returns>Datos de la sesión</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.SessionsController.GetSessionStatus(System.Guid)">
+            <summary>
+            Obtener estado de procesamiento de una sesión
+            </summary>
+            <param name="id">ID de la sesión</param>
+            <returns>Estado actual del procesamiento</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.SessionsController.GetSessions(System.Int32,System.Int32)">
+            <summary>
+            Obtener lista paginada de sesiones
+            </summary>
+            <param name="page">Número de página (base 1)</param>
+            <param name="pageSize">Tamaño de página</param>
+            <returns>Lista paginada de sesiones</returns>
+        </member>
+        <member name="M:CVProcessing.API.Controllers.SessionsController.DeleteSession(System.Guid)">
+            <summary>
+            Eliminar una sesión
+            </summary>
+            <param name="id">ID de la sesión</param>
+            <returns>Confirmación de eliminación</returns>
+        </member>
+        <member name="T:CVProcessing.API.Middleware.ExceptionHandlingMiddleware">
+            <summary>
+            Middleware para manejo global de excepciones
+            </summary>
+        </member>
+        <member name="T:CVProcessing.API.Middleware.ErrorResponse">
+            <summary>
+            Respuesta de error estandarizada
+            </summary>
+        </member>
+        <member name="T:CVProcessing.API.Middleware.ValidationError">
+            <summary>
+            Error de validación específico
+            </summary>
+        </member>
+        <member name="T:FileUploadOperationFilter">
+            <summary>
+            Filter para documentar file uploads en Swagger
+            </summary>
+            <summary>
+            Swagger operation filter to document file uploads in the API.
+            </summary>
+        </member>
+        <member name="M:FileUploadOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Modifies the OpenAPI operation to support file upload documentation.
+            </summary>
+            <param name="operation">The OpenAPI operation to modify.</param>
+            <param name="context">The operation filter context.</param>
+        </member>
+    </members>
+</doc>

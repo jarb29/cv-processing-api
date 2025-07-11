@@ -1,0 +1,13 @@
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/bin/Debug/net9.0/CVProcessing.Core.deps.json
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/bin/Debug/net9.0/CVProcessing.Core.dll
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/bin/Debug/net9.0/CVProcessing.Core.pdb
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/bin/Debug/net9.0/CVProcessing.Core.xml
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.AssemblyInfoInputs.cache
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.AssemblyInfo.cs
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.csproj.CoreCompileInputs.cache
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.dll
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/refint/CVProcessing.Core.dll
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.xml
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/CVProcessing.Core.pdb
+/Users/joserubio/Desktop/proyectos/Projectos_Nibaldo/endpoint-hr/CVProcessing.Core/obj/Debug/net9.0/ref/CVProcessing.Core.dll

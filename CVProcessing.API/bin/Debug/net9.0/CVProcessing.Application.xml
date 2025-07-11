@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CVProcessing.Application</name>
+    </assembly>
+    <members>
+        <member name="T:CVProcessing.Application.DependencyInjection">
+            <summary>
+            Configuración de inyección de dependencias para Application
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.DependencyInjection.AddApplication(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registrar servicios de aplicación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.UploadDocumentResponse">
+            <summary>
+            Response de documento subido
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.DocumentUploadResult">
+            <summary>
+            Resultado de subida de un documento individual
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.DocumentDetailsResponse">
+            <summary>
+            Response con detalles completos de un documento
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.CVDataDto">
+            <summary>
+            DTO para datos extraídos del CV
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.PersonalInfoDto">
+            <summary>
+            DTO para información personal
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.ExperienceDto">
+            <summary>
+            DTO para experiencia laboral
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.EducationDto">
+            <summary>
+            DTO para educación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.CertificationDto">
+            <summary>
+            DTO para certificación
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.LanguageDto">
+            <summary>
+            DTO para idioma
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.CVScoreDto">
+            <summary>
+            DTO para puntuación del CV
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.CreateSessionRequest">
+            <summary>
+            Request para crear una nueva sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.CreateSessionResponse">
+            <summary>
+            Response de sesión creada
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.SessionStatusResponse">
+            <summary>
+            Response con estado de sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.JobOfferDto">
+            <summary>
+            DTO para oferta laboral
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.SalaryRangeDto">
+            <summary>
+            DTO para rango salarial
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.SessionStatisticsDto">
+            <summary>
+            DTO para estadísticas de sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.SessionListResponse">
+            <summary>
+            Response con lista paginada de sesiones
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.DTOs.SessionSummaryDto">
+            <summary>
+            DTO resumido de sesión para listas
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.Extensions.DocumentServiceExtensions">
+            <summary>
+            Extension methods for IDocumentService
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.Extensions.DocumentServiceExtensions.UploadFromFormAsync(CVProcessing.Core.Interfaces.IDocumentService,System.Guid,Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            Subir documentos desde IFormFile
+            </summary>
+            <param name="documentService">The document service</param>
+            <param name="sessionId">ID de la sesión</param>
+            <param name="files">Colección de archivos del formulario</param>
+            <returns>Respuesta con resultados de la subida</returns>
+        </member>
+        <member name="T:CVProcessing.Application.Extensions.SessionServiceExtensions">
+            <summary>
+            Extension methods for ISessionService
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.Extensions.SessionServiceExtensions.CreateFromDtoAsync(CVProcessing.Core.Interfaces.ISessionService,CVProcessing.Application.DTOs.CreateSessionRequest)">
+            <summary>
+            Crear una nueva sesión a partir de un DTO
+            </summary>
+            <param name="sessionService">The session service</param>
+            <param name="request">DTO con datos de la sesión</param>
+            <returns>Respuesta con datos de la sesión creada</returns>
+        </member>
+        <member name="M:CVProcessing.Application.Extensions.SessionServiceExtensions.GetStatusAsync(CVProcessing.Core.Interfaces.ISessionService,System.Guid)">
+            <summary>
+            Obtener el estado de una sesión
+            </summary>
+            <param name="sessionService">The session service</param>
+            <param name="sessionId">ID de la sesión</param>
+            <returns>Estado de la sesión o null si no existe</returns>
+        </member>
+        <member name="T:CVProcessing.Application.Services.AnalysisService">
+            <summary>
+            Servicio de aplicación para análisis y comparación de candidatos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.Services.DocumentService">
+            <summary>
+            Servicio de aplicación para gestión de documentos
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.Services.DocumentService.UploadFromFormAsync(System.Guid,Microsoft.AspNetCore.Http.IFormFileCollection)">
+            <summary>
+            Subir documentos desde IFormFile
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Application.Services.SessionService">
+            <summary>
+            Servicio de aplicación para gestión de sesiones
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.Services.SessionService.CreateFromDtoAsync(CVProcessing.Application.DTOs.CreateSessionRequest)">
+            <summary>
+            Crear sesión desde DTO
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Application.Services.SessionService.GetStatusAsync(System.Guid)">
+            <summary>
+            Obtener estado de sesión como DTO
+            </summary>
+        </member>
+    </members>
+</doc>

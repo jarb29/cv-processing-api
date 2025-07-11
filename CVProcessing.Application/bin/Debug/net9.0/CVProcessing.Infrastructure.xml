@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CVProcessing.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:CVProcessing.Infrastructure.BackgroundServices.BackgroundServicesExtensions">
+            <summary>
+            Extensiones para configurar servicios en background
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.BackgroundServices.BackgroundServicesExtensions.AddBackgroundProcessing(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Agregar servicios de procesamiento en background
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.BackgroundServices.BackgroundServicesExtensions.AddRealTimeNotifications(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Agregar SignalR para notificaciones en tiempo real
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.BackgroundServices.DocumentProcessingService">
+            <summary>
+            Servicio en background para procesamiento de documentos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.BackgroundServices.JobSchedulerService">
+            <summary>
+            Servicio para programar trabajos automáticamente
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.BackgroundServices.SessionAnalysisService">
+            <summary>
+            Servicio en background para análisis de sesiones
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.DependencyInjection">
+            <summary>
+            Configuración de inyección de dependencias para Infrastructure
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.DependencyInjection.AddInfrastructure(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Registrar servicios de infraestructura
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.DependencyInjection.AddSerilogLogging(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configurar Serilog como proveedor de logging
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Logging.RequestLoggingMiddleware">
+            <summary>
+            Middleware para logging de requests y responses HTTP
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Logging.SerilogConfiguration">
+            <summary>
+            Configuración de Serilog para logging estructurado
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.Logging.SerilogConfiguration.CreateLogger(System.String)">
+            <summary>
+            Configurar Serilog con archivos y consola
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.Logging.SerilogConfiguration.CreateProductionConfiguration">
+            <summary>
+            Configurar Serilog para producción con configuración externa
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration">
+            <summary>
+            Configuración para el servicio de OpenAI
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.ApiKey">
+            <summary>
+            API Key de OpenAI
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.Model">
+            <summary>
+            Modelo a utilizar (default: gpt-4o-mini)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.MaxTokens">
+            <summary>
+            Máximo número de tokens en la respuesta
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.Temperature">
+            <summary>
+            Temperatura para la generación (0.0 - 2.0)
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.TimeoutSeconds">
+            <summary>
+            Timeout para requests en segundos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.MaxRetries">
+            <summary>
+            Número máximo de reintentos
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.OpenAI.OpenAIConfiguration.RetryDelayMs">
+            <summary>
+            Delay entre reintentos en milisegundos
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.OpenAI.OpenAIService">
+            <summary>
+            Servicio de integración con OpenAI para análisis de CVs
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.OpenAI.ComparisonResponse">
+            <summary>
+            Respuesta de comparación de OpenAI
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.OpenAI.PromptTemplates">
+            <summary>
+            Templates de prompts para OpenAI
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.OpenAI.PromptTemplates.ExtractCVData(System.String,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Prompt para extraer datos estructurados de un CV
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.OpenAI.PromptTemplates.GenerateComparison(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Prompt para generar comparación detallada
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.OpenAI.PromptTemplates.GenerateExecutiveSummary(CVProcessing.Core.Entities.CVData,CVProcessing.Core.Entities.JobOffer)">
+            <summary>
+            Prompt para generar resumen ejecutivo
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Queue.IJobQueue`1">
+            <summary>
+            Interface para sistema de colas de trabajos
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.Queue.IJobQueue`1.EnqueueAsync(`0)">
+            <summary>
+            Encolar un trabajo
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.Queue.IJobQueue`1.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Desencolar un trabajo
+            </summary>
+        </member>
+        <member name="P:CVProcessing.Infrastructure.Queue.IJobQueue`1.Count">
+            <summary>
+            Obtener número de trabajos pendientes
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Queue.DocumentProcessingJob">
+            <summary>
+            Trabajo de procesamiento de documento
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Queue.SessionAnalysisJob">
+            <summary>
+            Trabajo de análisis de sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Queue.InMemoryJobQueue`1">
+            <summary>
+            Implementación en memoria del sistema de colas usando Channels
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService">
+            <summary>
+            Servicio para notificaciones en tiempo real del procesamiento
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService.NotifySessionProgressAsync(System.Guid,System.Int32,System.String)">
+            <summary>
+            Notificar progreso de procesamiento de sesión
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService.NotifyDocumentProcessedAsync(System.Guid,System.Guid,System.Boolean,System.String)">
+            <summary>
+            Notificar que un documento ha sido procesado
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService.NotifyAnalysisCompleteAsync(System.Guid,System.Object)">
+            <summary>
+            Notificar que el análisis de sesión ha sido completado
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService.NotifyProcessingErrorAsync(System.Guid,System.String)">
+            <summary>
+            Notificar error en el procesamiento
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.IProcessingNotificationService.NotifySessionStatusChangedAsync(System.Guid,System.String,System.String)">
+            <summary>
+            Notificar cambio de estado de sesión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.SignalR.ProcessingNotificationService">
+            <summary>
+            Implementación del servicio de notificaciones usando SignalR
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.SignalR.ProcessingHub">
+            <summary>
+            SignalR Hub para procesamiento en tiempo real
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.ProcessingHub.JoinSession(System.String)">
+            <summary>
+            Unirse a un grupo de sesión para recibir notificaciones
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.ProcessingHub.LeaveSession(System.String)">
+            <summary>
+            Salir de un grupo de sesión
+            </summary>
+        </member>
+        <member name="M:CVProcessing.Infrastructure.SignalR.ProcessingHub.GetConnectionInfo">
+            <summary>
+            Obtener estado de conexión
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Storage.LocalFileStorage">
+            <summary>
+            Implementación de almacenamiento en sistema de archivos local
+            </summary>
+        </member>
+        <member name="T:CVProcessing.Infrastructure.Storage.SessionRepository">
+            <summary>
+            Repositorio para persistencia de sesiones en JSON
+            </summary>
+        </member>
+    </members>
+</doc>
